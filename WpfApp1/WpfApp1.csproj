@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Imagenes\1.png" />
+    <None Remove="Imagenes\2.png" />
+    <None Remove="Imagenes\3.png" />
+    <None Remove="Imagenes\profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="NVVM\Model\" />
+    <Folder Include="Fuentes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Imagenes\1.png" />
+    <Resource Include="Imagenes\2.png" />
+    <Resource Include="Imagenes\3.png" />
+    <Resource Include="Imagenes\profile.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="NVVM\View\VistaProducto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NVVM\View\VistaTienda.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
