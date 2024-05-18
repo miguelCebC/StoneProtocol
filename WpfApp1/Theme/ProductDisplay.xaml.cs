@@ -9,24 +9,34 @@ namespace WpfApp1
 {
     public partial class ProductDisplay : UserControl
     {
-   
+        public string ImagePath { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public ProductDisplay()
         {
             InitializeComponent();
             DataContext = this;
+            Name = "ejemplo";
+            Description = "Description";
+            ImagePath = null;
         }
 
         public void LoadData(string imagePath, string name, string description)
         {
             ItemImage.Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
             ItemName.Text = name;
-            ItemDescription.Text = description;
+            Description = description;
         }
 
-        private void ToggleDescription(object sender, RoutedEventArgs e)
+        private void ShowDescriptionPopup(object sender, RoutedEventArgs e)
         {
-            ItemDescription.Visibility = ItemDescription.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+            DescriptionPopup.IsOpen = true;
+        }
+
+        private void CloseDescriptionPopup(object sender, RoutedEventArgs e)
+        {
+            DescriptionPopup.IsOpen = false;
         }
     }
 
@@ -43,5 +53,6 @@ namespace WpfApp1
         {
             throw new NotImplementedException();
         }
+
     }
 }

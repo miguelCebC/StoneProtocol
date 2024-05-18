@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -14,6 +15,7 @@ namespace WpfApp1.NVVM.View
         public VistaPrincipal()
         {
             InitializeComponent();
+            LoadComponents();
         }
 
         private void StackPanel_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -117,5 +119,38 @@ namespace WpfApp1.NVVM.View
                 stackPanel.ReleaseTouchCapture(e.TouchDevice);
             }
         }
+        private void LoadComponents()
+        {
+            List<ItemData> items = GetItemsFromDatabase();
+
+            foreach (var item in items)
+            {
+                var component = new ProductDisplay();
+                component.LoadData(item.ImagePath, item.Name, item.Description);
+                HorizontalStackPanel1.Children.Add(component);
+            }
+        }
+
+        private List<ItemData> GetItemsFromDatabase()
+        {
+            // Aquí va la lógica para obtener los datos de la base de datos.
+            // Esto es solo un ejemplo:
+            return new List<ItemData>
+            {
+                new ItemData { ImagePath = "path/to/image1.jpg", Name = "Item 1", Description = "Description for Item 1" },
+                new ItemData { ImagePath = "path/to/image2.jpg", Name = "Item 2", Description = "Description for Item 2" }
+            };
+        }
     }
+
+
+    public class ItemData
+    {
+        public string ImagePath { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+    }
+
+
 }
+

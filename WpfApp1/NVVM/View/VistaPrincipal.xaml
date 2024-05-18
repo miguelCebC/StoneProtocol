@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WpfApp1.NVVM.View"
+                          xmlns:local="clr-namespace:WpfApp1"
+
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid Margin="20">
@@ -78,7 +79,11 @@
                                 </Image.RenderTransform>
                             </Image>
                         </Grid>
+                        
                     </Border>
+                    
+                    <local:ProductDisplay Margin="20,0,40,0" Height="300"></local:ProductDisplay>
+                    
                     <Border Margin="20,0,40,0" CornerRadius="10" Width="800" Height="400">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
