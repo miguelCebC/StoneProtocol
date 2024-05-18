@@ -27,7 +27,7 @@
             HorizontalAlignment="Left"
             Margin="10,0,0,20"/>
 
-        <Border Grid.Row="1" Grid.Column="0" Background="#272537" Margin="0,0,0,20" ClipToBounds="True">
+        <Border Grid.Row="1" Grid.Column="0" Background="Transparent" Margin="0,0,0,20" ClipToBounds="True">
             <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                 <StackPanel x:Name="HorizontalStackPanel1" Orientation="Horizontal"
                             PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown"
@@ -128,9 +128,9 @@
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Más Vistos"
                    Foreground="White"
                    FontSize="36"
-                   Margin="10,20,0,20"/>
+                   Margin="10,10,0,10"/>
 
-        <Border Grid.Row="3" Grid.Column="0" Background="#272537" Margin="0,0,0,20" ClipToBounds="True">
+        <Border Grid.Row="3" Grid.Column="0" Background="Transparent" Margin="0,0,0,20" ClipToBounds="True">
             <ScrollViewer HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
                 <StackPanel x:Name="HorizontalStackPanel2" Orientation="Horizontal"
                             PreviewMouseLeftButtonDown="StackPanel_PreviewMouseLeftButtonDown"
