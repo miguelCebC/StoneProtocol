@@ -1,59 +1,47 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace WpfApp1
 {
     public partial class ProductDisplay : UserControl
     {
+   
+
         public ProductDisplay()
         {
             InitializeComponent();
             DataContext = this;
-            BackgroundColor = new SolidColorBrush(GetRandomColor());
         }
 
-        public static readonly DependencyProperty ImageUrlProperty =
-            DependencyProperty.Register("ImageUrl", typeof(string), typeof(ProductDisplay), new PropertyMetadata(default(string)));
-
-        public static readonly DependencyProperty DescriptionProperty =
-            DependencyProperty.Register("Description", typeof(string), typeof(ProductDisplay), new PropertyMetadata(default(string)));
-
-        public static readonly DependencyProperty PriceProperty =
-            DependencyProperty.Register("Price", typeof(decimal), typeof(ProductDisplay), new PropertyMetadata(default(decimal)));
-
-        public static readonly DependencyProperty BackgroundColorProperty =
-            DependencyProperty.Register("BackgroundColor", typeof(Brush), typeof(ProductDisplay), new PropertyMetadata(default(Brush)));
-
-        public string ImageUrl
+        public void LoadData(string imagePath, string name, string description)
         {
-            get { return (string)GetValue(ImageUrlProperty); }
-            set { SetValue(ImageUrlProperty, value); }
+            ItemImage.Source = new BitmapImage(new Uri(imagePath, UriKind.RelativeOrAbsolute));
+            ItemName.Text = name;
+            ItemDescription.Text = description;
         }
 
-        public string Description
+        private void ToggleDescription(object sender, RoutedEventArgs e)
         {
-            get { return (string)GetValue(DescriptionProperty); }
-            set { SetValue(DescriptionProperty, value); }
+            ItemDescription.Visibility = ItemDescription.Visibility == Visibility.Collapsed ? Visibility.Visible : Visibility.Collapsed;
+        }
+    }
+
+    public class RandomColorConverter : IValueConverter
+    {
+        private static Random random = new Random();
+
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            return Color.FromRgb((byte)random.Next(256), (byte)random.Next(256), (byte)random.Next(256));
         }
 
-        public decimal Price
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            get { return (decimal)GetValue(PriceProperty); }
-            set { SetValue(PriceProperty, value); }
-        }
-
-        public Brush BackgroundColor
-        {
-            get { return (Brush)GetValue(BackgroundColorProperty); }
-            set { SetValue(BackgroundColorProperty, value); }
-        }
-
-        private Color GetRandomColor()
-        {
-            Random rand = new Random();
-            return Color.FromRgb((byte)rand.Next(256), (byte)rand.Next(256), (byte)rand.Next(256));
+            throw new NotImplementedException();
         }
     }
 }

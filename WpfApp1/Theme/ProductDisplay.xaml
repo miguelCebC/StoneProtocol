@@ -1,20 +1,22 @@
 ﻿<UserControl x:Class="WpfApp1.ProductDisplay"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="300">
-    <Border x:Name="MainBorder" CornerRadius="10" Background="{Binding BackgroundColor}">
-        <Grid Margin="20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Image Grid.Row="0" Source="{Binding ImageUrl}" Stretch="Uniform"/>
-            <TextBlock Grid.Row="1" Text="{Binding Description}" Foreground="White" FontSize="16" Margin="0,10,0,0" TextWrapping="Wrap"/>
-            <TextBlock Grid.Row="2" Text="{Binding Price, StringFormat=C}" Foreground="White" FontSize="16" Margin="0,10,0,0"/>
-        </Grid>
+             xmlns:local="clr-namespace:WpfApp1"
+             Width="800" Height="Auto">
+
+    <UserControl.Resources>
+        <local:RandomColorConverter x:Key="RandomColorConverter"/>
+    </UserControl.Resources>
+
+    <Border Margin="20,0,40,0" CornerRadius="10" Width="800">
+        <Border.Background>
+            <SolidColorBrush Color="{Binding Path=., Converter={StaticResource RandomColorConverter}}"/>
+        </Border.Background>
+        <StackPanel>
+            <Image x:Name="ItemImage" Width="200" Height="200" HorizontalAlignment="Center" Margin="10"/>
+            <TextBlock x:Name="ItemName" FontSize="24" FontWeight="Bold" TextAlignment="Center" Margin="10"/>
+            <Button Content="Show Description" Click="ToggleDescription" HorizontalAlignment="Center" Margin="10"/>
+            <TextBlock x:Name="ItemDescription" TextWrapping="Wrap" Visibility="Collapsed" Margin="10"/>
+        </StackPanel>
     </Border>
 </UserControl>
