@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp1.Loguin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:WpfApp1.NVVM.ViewModel"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Loguin" Height="450" Width="350"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        MouseDown="Window_MouseDown">
+
+    <Border Background="#272537" CornerRadius="15" Padding="10" MouseDown="Border_MouseDown">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Botones de control de la ventana -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0" Grid.Row="0" Grid.ColumnSpan="2">
+                <Button Width="30" Height="30" Background="Transparent" Click="MinimizeButton_Click">
+                    <Image Source="Imagenes/1.png" Stretch="Uniform"/>
+                </Button>
+                <Button Width="30" Height="30" Background="Transparent" Click="MaximizeButton_Click" Margin="10,0,0,0">
+                    <Image Source="Imagenes/1.png"/>
+                </Button>
+                <Button Width="30" Height="30" Background="Transparent" Click="CloseButton_Click" Margin="10,0,0,0">
+                    <Image Source="Imagenes/cerrar.png"/>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0">
+                <TextBlock Text="Iniciar Sesión"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontSize="22"
+                           Margin="0,0,0,20"/>
+
+                <TextBox Name="CorreoTextBox" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,10,0,0" Text="Correo Electrónico" Style="{StaticResource TboxPerson}"/>
+                <TextBox Name="ContrasenaTextBox" Width="250" Height="30" VerticalContentAlignment="Center" Margin="0,10,0,0" Text="Contraseña" Style="{StaticResource TboxPerson}"/>
+                <CheckBox Name="EsAdminCheckBox" Content="Administrador" Margin="0,10,0,0" Foreground="White"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+                    <Button Name="BotonRegistrar" Content="Registrarse" Width="100" Height="30" Margin="5" Click="BotonRegistrar_Click"/>
+                    <Button Name="BotonIniciarSesion" Content="Iniciar Sesión" Width="100" Height="30" Margin="5" Click="BotonIniciarSesion_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

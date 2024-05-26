@@ -20,6 +20,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Imagenes\1.png" />
     <Resource Include="Imagenes\2.png" />
     <Resource Include="Imagenes\3.png" />

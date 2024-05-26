@@ -84,7 +84,7 @@
                     
                     <local:ProductDisplay Margin="20,0,40,0" Height="300"></local:ProductDisplay>
                     
-                    <Border Margin="20,0,40,0" CornerRadius="10" Width="800" Height="400">
+                    <Border Margin="20,0,40,0" CornerRadius="10" Width="Auto" Height="Auto">
                         <Border.Background>
                             <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                                 <GradientStop Color="#ffc554" Offset="0.0"/>
